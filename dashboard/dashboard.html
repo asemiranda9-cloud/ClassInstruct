@@ -7,9 +7,60 @@
     <link rel="stylesheet" href="dashboardglobal.css" />
     <link rel="stylesheet" href="dashboardstyle.css" />
     <script>
+        const months = [
+            { name: 'January', days: 31, startDay: 3 },
+            { name: 'February', days: 28, startDay: 6 },
+            { name: 'March', days: 31, startDay: 6 },
+            { name: 'April', days: 30, startDay: 2 },
+            { name: 'May', days: 31, startDay: 4 },
+            { name: 'June', days: 30, startDay: 0 },
+            { name: 'July', days: 31, startDay: 2 },
+            { name: 'August', days: 31, startDay: 5 },
+            { name: 'September', days: 30, startDay: 1 },
+            { name: 'October', days: 31, startDay: 3 },
+            { name: 'November', days: 30, startDay: 6 },
+            { name: 'December', days: 31, startDay: 1 }
+        ];
+        
+        let currentMonthIndex = 0;
+        
+        function renderCalendar() {
+            const month = months[currentMonthIndex];
+            const display = document.getElementById('currentMonthDisplay');
+            const daysContainer = document.getElementById('monthDays');
+            
+            display.textContent = month.name;
+            daysContainer.innerHTML = '';
+            
+            // Add empty cells for days before the first day of the month
+            for (let i = 0; i < month.startDay; i++) {
+                const emptyDay = document.createElement('span');
+                emptyDay.className = 'day empty';
+                daysContainer.appendChild(emptyDay);
+            }
+            
+            // Add days of the month
+            for (let day = 1; day <= month.days; day++) {
+                const daySpan = document.createElement('span');
+                daySpan.className = 'day';
+                daySpan.textContent = day;
+                daysContainer.appendChild(daySpan);
+            }
+        }
+        
+        function changeMonth(direction) {
+            currentMonthIndex += direction;
+            if (currentMonthIndex < 0) currentMonthIndex = 11;
+            if (currentMonthIndex > 11) currentMonthIndex = 0;
+            renderCalendar();
+        }
+        
         function showMonth(monthName) {
             alert('Selected month: ' + monthName);
         }
+        
+        // Initialize calendar on page load
+        document.addEventListener('DOMContentLoaded', renderCalendar);
     </script>
 </head>
 <body>
@@ -100,214 +151,17 @@
                 </article>
                 <article class="card calendar">
                     <h2>Calendar 2026</h2>
-                    <div class="year-calendar">
-                        <!-- January -->
-                        <div class="month-widget">
-                            <button class="month-header" onclick="showMonth('January')">January</button>
-                            <div class="month-weekdays">
-                                <span>Su</span><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span>
-                            </div>
-                            <div class="month-days">
+                    <div class="single-month-calendar">
+                        <div class="calendar-nav-container">
+                            <button class="calendar-nav-btn" onclick="changeMonth(-1)">&#8249; Prev</button>
+                            <span class="current-month" id="currentMonthDisplay">January</span>
+                            <button class="calendar-nav-btn" onclick="changeMonth(1)">Next &#8250;</button>
+                        </div>
+                        <div class="month-weekdays">
+                            <span>Su</span><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span>
                         </div>
                         <div class="month-days" id="monthDays">
-                                <span class="day">1</span><span class="day">2</span><span class="day">3</span>
-                                <span class="day">4</span><span class="day">5</span><span class="day">6</span><span class="day">7</span>
-                                <span class="day">8</span><span class="day">9</span><span class="day">10</span><span class="day">11</span>
-                                <span class="day">12</span><span class="day">13</span><span class="day">14</span><span class="day">15</span>
-                                <span class="day">16</span><span class="day">17</span><span class="day">18</span><span class="day">19</span>
-                                <span class="day">20</span><span class="day">21</span><span class="day">22</span><span class="day">23</span>
-                                <span class="day">24</span><span class="day">25</span><span class="day">26</span><span class="day">27</span>
-                                <span class="day">28</span><span class="day">29</span><span class="day">30</span><span class="day">31</span>
-                            </div>
-                        </div>
-                        <!-- February -->
-                        <div class="month-widget">
-                            <button class="month-header" onclick="showMonth('February')">February</button>
-                            <div class="month-weekdays">
-                                <span>Su</span><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span>
-                            </div>
-                            <div class="month-days">
-                                <span class="day">1</span><span class="day">2</span><span class="day">3</span><span class="day">4</span>
-                                <span class="day">5</span><span class="day">6</span><span class="day">7</span><span class="day">8</span>
-                                <span class="day">9</span><span class="day">10</span><span class="day">11</span><span class="day">12</span><span class="day">13</span><span class="day">14</span><span class="day">15</span><span class="day">16</span>
-                                <span class="day">17</span><span class="day">18</span><span class="day">19</span><span class="day">20</span>
-                                <span class="day">21</span><span class="day">22</span><span class="day">23</span><span class="day">24</span>
-                                <span class="day">25</span><span class="day">26</span><span class="day">27</span><span class="day">28</span>
-                            </div>
-                        </div>
-                        <!-- March -->
-                        <div class="month-widget">
-                            <button class="month-header" onclick="showMonth('March')">March</button>
-                            <div class="month-weekdays">
-                                <span>Su</span><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span>
-                            </div>
-                            <div class="month-days">
-                                <span class="day">1</span><span class="day">2</span><span class="day">3</span><span class="day">4</span>
-                                <span class="day">5</span><span class="day">6</span><span class="day">7</span><span class="day">8</span>
-                                <span class="day">9</span><span class="day">10</span><span class="day">11</span><span class="day">12</span>
-                                <span class="day">13</span><span class="day">14</span><span class="day">15</span><span class="day">16</span>
-                                <span class="day">17</span><span class="day">18</span><span class="day">19</span><span class="day">20</span>
-                                <span class="day">21</span><span class="day">22</span><span class="day">23</span><span class="day">24</span>
-                                <span class="day">25</span><span class="day">26</span><span class="day">27</span><span class="day">28</span>
-                                <span class="day">29</span><span class="day">30</span><span class="day">31</span>
-                            </div>
-                        </div>
-                        <!-- April -->
-                        <div class="month-widget">
-                            <button class="month-header" onclick="showMonth('April')">April</button>
-                            <div class="month-weekdays">
-                                <span>Su</span><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span>
-                            </div>
-                            <div class="month-days">
-                                <span class="day empty"></span><span class="day">1</span><span class="day">2</span><span class="day">3</span>
-                                <span class="day">4</span><span class="day">5</span><span class="day">6</span><span class="day">7</span>
-                                <span class="day">8</span><span class="day">9</span><span class="day">10</span><span class="day">11</span>
-                                <span class="day">12</span><span class="day">13</span><span class="day">14</span><span class="day">15</span>
-                                <span class="day">16</span><span class="day">17</span><span class="day">18</span><span class="day">19</span>
-                                <span class="day">20</span><span class="day">21</span><span class="day">22</span><span class="day">23</span>
-                                <span class="day">24</span><span class="day">25</span><span class="day">26</span><span class="day">27</span>
-                                <span class="day">28</span><span class="day">29</span><span class="day">30</span>
-                            </div>
-                        </div>
-                        <!-- May -->
-                        <div class="month-widget">
-                            <button class="month-header" onclick="showMonth('May')">May</button>
-                            <div class="month-weekdays">
-                                <span>Su</span><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span>
-                            </div>
-                            <div class="month-days">
-                                <span class="day empty"></span><span class="day empty"></span><span class="day">1</span><span class="day">2</span>
-                                <span class="day">3</span><span class="day">4</span><span class="day">5</span><span class="day">6</span>
-                                <span class="day">7</span><span class="day">8</span><span class="day">9</span><span class="day">10</span>
-                                <span class="day">11</span><span class="day">12</span><span class="day">13</span><span class="day">14</span>
-                                <span class="day">15</span><span class="day">16</span><span class="day">17</span><span class="day">18</span>
-                                <span class="day">19</span><span class="day">20</span><span class="day">21</span><span class="day">22</span>
-                                <span class="day">23</span><span class="day">24</span><span class="day">25</span><span class="day">26</span>
-                                <span class="day">27</span><span class="day">28</span><span class="day">29</span><span class="day">30</span>
-                                <span class="day">31</span>
-                            </div>
-                        </div>
-                        <!-- June -->
-                        <div class="month-widget">
-                            <button class="month-header" onclick="showMonth('June')">June</button>
-                            <div class="month-weekdays">
-                                <span>Su</span><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span>
-                            </div>
-                            <div class="month-days">
-                                <span class="day empty"></span><span class="day">1</span><span class="day">2</span><span class="day">3</span>
-                                <span class="day">4</span><span class="day">5</span><span class="day">6</span><span class="day">7</span>
-                                <span class="day">8</span><span class="day">9</span><span class="day">10</span><span class="day">11</span>
-                                <span class="day">12</span><span class="day">13</span><span class="day">14</span><span class="day">15</span>
-                                <span class="day">16</span><span class="day">17</span><span class="day">18</span><span class="day">19</span>
-                                <span class="day">20</span><span class="day">21</span><span class="day">22</span><span class="day">23</span>
-                                <span class="day">24</span><span class="day">25</span><span class="day">26</span><span class="day">27</span>
-                                <span class="day">28</span><span class="day">29</span><span class="day">30</span>
-                            </div>
-                        </div>
-                        <!-- July -->
-                        <div class="month-widget">
-                            <button class="month-header" onclick="showMonth('July')">July</button>
-                            <div class="month-weekdays">
-                                <span>Su</span><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span>
-                            </div>
-                            <div class="month-days">
-                                <span class="day empty"></span><span class="day empty"></span><span class="day">1</span><span class="day">2</span>
-                                <span class="day">3</span><span class="day">4</span><span class="day">5</span><span class="day">6</span>
-                                <span class="day">7</span><span class="day">8</span><span class="day">9</span><span class="day">10</span>
-                                <span class="day">11</span><span class="day">12</span><span class="day">13</span><span class="day">14</span>
-                                <span class="day">15</span><span class="day">16</span><span class="day">17</span><span class="day">18</span>
-                                <span class="day">19</span><span class="day">20</span><span class="day">21</span><span class="day">22</span>
-                                <span class="day">23</span><span class="day">24</span><span class="day">25</span><span class="day">26</span>
-                                <span class="day">27</span><span class="day">28</span><span class="day">29</span><span class="day">30</span>
-                                <span class="day">31</span>
-                            </div>
-                        </div>
-                        <!-- August -->
-                        <div class="month-widget">
-                            <button class="month-header" onclick="showMonth('August')">August</button>
-                            <div class="month-weekdays">
-                                <span>Su</span><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span>
-                            </div>
-                            <div class="month-days">
-                                <span class="day empty"></span><span class="day empty"></span><span class="day empty"></span><span class="day empty"></span>
-                                <span class="day">1</span><span class="day">2</span><span class="day">3</span><span class="day">4</span>
-                                <span class="day">5</span><span class="day">6</span><span class="day">7</span><span class="day">8</span>
-                                <span class="day">9</span><span class="day">10</span><span class="day">11</span><span class="day">12</span>
-                                <span class="day">13</span><span class="day">14</span><span class="day">15</span><span class="day">16</span>
-                                <span class="day">17</span><span class="day">18</span><span class="day">19</span><span class="day">20</span>
-                                <span class="day">21</span><span class="day">22</span><span class="day">23</span><span class="day">24</span>
-                                <span class="day">25</span><span class="day">26</span><span class="day">27</span><span class="day">28</span>
-                                <span class="day">29</span><span class="day">30</span><span class="day">31</span>
-                            </div>
-                        </div>
-                        <!-- September -->
-                        <div class="month-widget">
-                            <button class="month-header" onclick="showMonth('September')">September</button>
-                            <div class="month-weekdays">
-                                <span>Su</span><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span>
-                            </div>
-                            <div class="month-days">
-                                <span class="day empty"></span><span class="day">1</span><span class="day">2</span><span class="day">3</span>
-                                <span class="day">4</span><span class="day">5</span><span class="day">6</span><span class="day">7</span>
-                                <span class="day">8</span><span class="day">9</span><span class="day">10</span><span class="day">11</span>
-                                <span class="day">12</span><span class="day">13</span><span class="day">14</span><span class="day">15</span>
-                                <span class="day">16</span><span class="day">17</span><span class="day">18</span><span class="day">19</span>
-                                <span class="day">20</span><span class="day">21</span><span class="day">22</span><span class="day">23</span>
-                                <span class="day">24</span><span class="day">25</span><span class="day">26</span><span class="day">27</span>
-                                <span class="day">28</span><span class="day">29</span><span class="day">30</span>
-                            </div>
-                        </div>
-                        <!-- October -->
-                        <div class="month-widget">
-                            <button class="month-header" onclick="showMonth('October')">October</button>
-                            <div class="month-weekdays">
-                                <span>Su</span><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span>
-                            </div>
-                            <div class="month-days">
-                                <span class="day empty"></span><span class="day empty"></span><span class="day">1</span><span class="day">2</span>
-                                <span class="day">3</span><span class="day">4</span><span class="day">5</span><span class="day">6</span>
-                                <span class="day">7</span><span class="day">8</span><span class="day">9</span><span class="day">10</span>
-                                <span class="day">11</span><span class="day">12</span><span class="day">13</span><span class="day">14</span>
-                                <span class="day">15</span><span class="day">16</span><span class="day">17</span><span class="day">18</span>
-                                <span class="day">19</span><span class="day">20</span><span class="day">21</span><span class="day">22</span>
-                                <span class="day">23</span><span class="day">24</span><span class="day">25</span><span class="day">26</span>
-                                <span class="day">27</span><span class="day">28</span><span class="day">29</span><span class="day">30</span>
-                                <span class="day">31</span>
-                            </div>
-                        </div>
-                        <!-- November -->
-                        <div class="month-widget">
-                            <button class="month-header" onclick="showMonth('November')">November</button>
-                            <div class="month-weekdays">
-                                <span>Su</span><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span>
-                            </div>
-                            <div class="month-days">
-                                <span class="day">1</span><span class="day">2</span><span class="day">3</span><span class="day">4</span>
-                                <span class="day">5</span><span class="day">6</span><span class="day">7</span><span class="day">8</span>
-                                <span class="day">9</span><span class="day">10</span><span class="day">11</span><span class="day">12</span>
-                                <span class="day">13</span><span class="day">14</span><span class="day">15</span><span class="day">16</span>
-                                <span class="day">17</span><span class="day">18</span><span class="day">19</span><span class="day">20</span>
-                                <span class="day">21</span><span class="day">22</span><span class="day">23</span><span class="day">24</span>
-                                <span class="day">25</span><span class="day">26</span><span class="day">27</span><span class="day">28</span>
-                                <span class="day">29</span><span class="day">30</span>
-                            </div>
-                        </div>
-                        <!-- December -->
-                        <div class="month-widget">
-                            <button class="month-header" onclick="showMonth('December')">December</button>
-                            <div class="month-weekdays">
-                                <span>Su</span><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span>
-                            </div>
-                            <div class="month-days">
-                                <span class="day empty"></span><span class="day">1</span><span class="day">2</span><span class="day">3</span>
-                                <span class="day">4</span><span class="day">5</span><span class="day">6</span><span class="day">7</span>
-                                <span class="day">8</span><span class="day">9</span><span class="day">10</span><span class="day">11</span>
-                                <span class="day">12</span><span class="day">13</span><span class="day">14</span><span class="day">15</span>
-                                <span class="day">16</span><span class="day">17</span><span class="day">18</span><span class="day">19</span>
-                                <span class="day">20</span><span class="day">21</span><span class="day">22</span><span class="day">23</span>
-                                <span class="day">24</span><span class="day">25</span><span class="day">26</span><span class="day">27</span>
-                                <span class="day">28</span><span class="day">29</span><span class="day">30</span><span class="day">31</span>
-                            </div>
+                            <!-- Days will be populated by JavaScript -->
                         </div>
                     </div>
                 </article>
