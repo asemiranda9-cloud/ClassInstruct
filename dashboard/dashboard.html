@@ -6,7 +6,11 @@
     <title>ClassInstruct - Dashboard</title>
     <link rel="stylesheet" href="dashboardglobal.css" />
     <link rel="stylesheet" href="dashboardstyle.css" />
-     
+    <script>
+        function showMonth(monthName) {
+            alert('Selected month: ' + monthName);
+        }
+    </script>
 </head>
 <body>
     <div class="dashboard">
@@ -99,11 +103,13 @@
                     <div class="year-calendar">
                         <!-- January -->
                         <div class="month-widget">
-                            <div class="month-header">January</div>
+                            <button class="month-header" onclick="showMonth('January')">January</button>
                             <div class="month-weekdays">
                                 <span>Su</span><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span>
                             </div>
                             <div class="month-days">
+                        </div>
+                        <div class="month-days" id="monthDays">
                                 <span class="day">1</span><span class="day">2</span><span class="day">3</span>
                                 <span class="day">4</span><span class="day">5</span><span class="day">6</span><span class="day">7</span>
                                 <span class="day">8</span><span class="day">9</span><span class="day">10</span><span class="day">11</span>
@@ -116,15 +122,14 @@
                         </div>
                         <!-- February -->
                         <div class="month-widget">
-                            <div class="month-header">February</div>
+                            <button class="month-header" onclick="showMonth('February')">February</button>
                             <div class="month-weekdays">
                                 <span>Su</span><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span>
                             </div>
                             <div class="month-days">
                                 <span class="day">1</span><span class="day">2</span><span class="day">3</span><span class="day">4</span>
                                 <span class="day">5</span><span class="day">6</span><span class="day">7</span><span class="day">8</span>
-                                <span class="day">9</span><span class="day">10</span><span class="day">11</span><span class="day">                                <span class12</span>
-="day">13</span><span class="day">14</span><span class="day">15</span><span class="day">16</span>
+                                <span class="day">9</span><span class="day">10</span><span class="day">11</span><span class="day">12</span><span class="day">13</span><span class="day">14</span><span class="day">15</span><span class="day">16</span>
                                 <span class="day">17</span><span class="day">18</span><span class="day">19</span><span class="day">20</span>
                                 <span class="day">21</span><span class="day">22</span><span class="day">23</span><span class="day">24</span>
                                 <span class="day">25</span><span class="day">26</span><span class="day">27</span><span class="day">28</span>
@@ -132,7 +137,7 @@
                         </div>
                         <!-- March -->
                         <div class="month-widget">
-                            <div class="month-header">March</div>
+                            <button class="month-header" onclick="showMonth('March')">March</button>
                             <div class="month-weekdays">
                                 <span>Su</span><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span>
                             </div>
@@ -149,12 +154,12 @@
                         </div>
                         <!-- April -->
                         <div class="month-widget">
-                            <div class="month-header">April</div>
+                            <button class="month-header" onclick="showMonth('April')">April</button>
                             <div class="month-weekdays">
                                 <span>Su</span><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span>
                             </div>
                             <div class="month-days">
-                                <span class="day"></span><span class="day">1</span><span class="day">2</span><span class="day">3</span>
+                                <span class="day empty"></span><span class="day">1</span><span class="day">2</span><span class="day">3</span>
                                 <span class="day">4</span><span class="day">5</span><span class="day">6</span><span class="day">7</span>
                                 <span class="day">8</span><span class="day">9</span><span class="day">10</span><span class="day">11</span>
                                 <span class="day">12</span><span class="day">13</span><span class="day">14</span><span class="day">15</span>
@@ -166,12 +171,12 @@
                         </div>
                         <!-- May -->
                         <div class="month-widget">
-                            <div class="month-header">May</div>
+                            <button class="month-header" onclick="showMonth('May')">May</button>
                             <div class="month-weekdays">
                                 <span>Su</span><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span>
                             </div>
                             <div class="month-days">
-                                <span class="day"></span><span class="day"></span><span class="day">1</span><span class="day">2</span>
+                                <span class="day empty"></span><span class="day empty"></span><span class="day">1</span><span class="day">2</span>
                                 <span class="day">3</span><span class="day">4</span><span class="day">5</span><span class="day">6</span>
                                 <span class="day">7</span><span class="day">8</span><span class="day">9</span><span class="day">10</span>
                                 <span class="day">11</span><span class="day">12</span><span class="day">13</span><span class="day">14</span>
@@ -184,12 +189,12 @@
                         </div>
                         <!-- June -->
                         <div class="month-widget">
-                            <div class="month-header">June</div>
+                            <button class="month-header" onclick="showMonth('June')">June</button>
                             <div class="month-weekdays">
                                 <span>Su</span><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span>
                             </div>
                             <div class="month-days">
-                                <span class="day"></span><span class="day">1</span><span class="day">2</span><span class="day">3</span>
+                                <span class="day empty"></span><span class="day">1</span><span class="day">2</span><span class="day">3</span>
                                 <span class="day">4</span><span class="day">5</span><span class="day">6</span><span class="day">7</span>
                                 <span class="day">8</span><span class="day">9</span><span class="day">10</span><span class="day">11</span>
                                 <span class="day">12</span><span class="day">13</span><span class="day">14</span><span class="day">15</span>
@@ -201,12 +206,12 @@
                         </div>
                         <!-- July -->
                         <div class="month-widget">
-                            <div class="month-header">July</div>
+                            <button class="month-header" onclick="showMonth('July')">July</button>
                             <div class="month-weekdays">
                                 <span>Su</span><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span>
                             </div>
                             <div class="month-days">
-                                <span class="day"></span><span class="day"></span><span class="day">1</span><span class="day">2</span>
+                                <span class="day empty"></span><span class="day empty"></span><span class="day">1</span><span class="day">2</span>
                                 <span class="day">3</span><span class="day">4</span><span class="day">5</span><span class="day">6</span>
                                 <span class="day">7</span><span class="day">8</span><span class="day">9</span><span class="day">10</span>
                                 <span class="day">11</span><span class="day">12</span><span class="day">13</span><span class="day">14</span>
@@ -219,12 +224,12 @@
                         </div>
                         <!-- August -->
                         <div class="month-widget">
-                            <div class="month-header">August</div>
+                            <button class="month-header" onclick="showMonth('August')">August</button>
                             <div class="month-weekdays">
                                 <span>Su</span><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span>
                             </div>
                             <div class="month-days">
-                                <span class="day"></span><span class="day"></span><span class="day"></span><span class="day"></span>
+                                <span class="day empty"></span><span class="day empty"></span><span class="day empty"></span><span class="day empty"></span>
                                 <span class="day">1</span><span class="day">2</span><span class="day">3</span><span class="day">4</span>
                                 <span class="day">5</span><span class="day">6</span><span class="day">7</span><span class="day">8</span>
                                 <span class="day">9</span><span class="day">10</span><span class="day">11</span><span class="day">12</span>
@@ -237,12 +242,12 @@
                         </div>
                         <!-- September -->
                         <div class="month-widget">
-                            <div class="month-header">September</div>
+                            <button class="month-header" onclick="showMonth('September')">September</button>
                             <div class="month-weekdays">
                                 <span>Su</span><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span>
                             </div>
                             <div class="month-days">
-                                <span class="day"></span><span class="day">1</span><span class="day">2</span><span class="day">3</span>
+                                <span class="day empty"></span><span class="day">1</span><span class="day">2</span><span class="day">3</span>
                                 <span class="day">4</span><span class="day">5</span><span class="day">6</span><span class="day">7</span>
                                 <span class="day">8</span><span class="day">9</span><span class="day">10</span><span class="day">11</span>
                                 <span class="day">12</span><span class="day">13</span><span class="day">14</span><span class="day">15</span>
@@ -254,12 +259,12 @@
                         </div>
                         <!-- October -->
                         <div class="month-widget">
-                            <div class="month-header">October</div>
+                            <button class="month-header" onclick="showMonth('October')">October</button>
                             <div class="month-weekdays">
                                 <span>Su</span><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span>
                             </div>
                             <div class="month-days">
-                                <span class="day"></span><span class="day"></span><span class="day">1</span><span class="day">2</span>
+                                <span class="day empty"></span><span class="day empty"></span><span class="day">1</span><span class="day">2</span>
                                 <span class="day">3</span><span class="day">4</span><span class="day">5</span><span class="day">6</span>
                                 <span class="day">7</span><span class="day">8</span><span class="day">9</span><span class="day">10</span>
                                 <span class="day">11</span><span class="day">12</span><span class="day">13</span><span class="day">14</span>
@@ -272,7 +277,7 @@
                         </div>
                         <!-- November -->
                         <div class="month-widget">
-                            <div class="month-header">November</div>
+                            <button class="month-header" onclick="showMonth('November')">November</button>
                             <div class="month-weekdays">
                                 <span>Su</span><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span>
                             </div>
@@ -289,12 +294,12 @@
                         </div>
                         <!-- December -->
                         <div class="month-widget">
-                            <div class="month-header">December</div>
+                            <button class="month-header" onclick="showMonth('December')">December</button>
                             <div class="month-weekdays">
                                 <span>Su</span><span>Mo</span><span>Tu</span><span>We</span><span>Th</span><span>Fr</span><span>Sa</span>
                             </div>
                             <div class="month-days">
-                                <span class="day"></span><span class="day">1</span><span class="day">2</span><span class="day">3</span>
+                                <span class="day empty"></span><span class="day">1</span><span class="day">2</span><span class="day">3</span>
                                 <span class="day">4</span><span class="day">5</span><span class="day">6</span><span class="day">7</span>
                                 <span class="day">8</span><span class="day">9</span><span class="day">10</span><span class="day">11</span>
                                 <span class="day">12</span><span class="day">13</span><span class="day">14</span><span class="day">15</span>
@@ -318,4 +323,5 @@
         </main>
     </div>
 </body>
+</html>
 </html>
