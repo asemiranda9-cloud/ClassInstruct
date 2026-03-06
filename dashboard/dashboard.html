@@ -6,6 +6,7 @@
     <title>ClassInstruct - Dashboard</title>
     <link rel="stylesheet" href="dashboardglobal.css" />
     <link rel="stylesheet" href="dashboardstyle.css" />
+     
 </head>
 <body>
     <div class="dashboard">
@@ -33,12 +34,16 @@
             </header>
             <section class="content-grid">
                 <article class="card enrolled-students">
-                    <h2>Enrolled Students</h2>
-                    <div class="student-count">374</div>
-                    <img class="icon" src="img/tuden-1.png" alt="Student icon" />
+                    <div class="enrolled-content">
+                        <div class="enrolled-info">
+                            <h2>Enrolled Students</h2>
+                            <div class="student-count">300</div>
+                        </div>
+                        <img class="icon" src="../image/Student.png" alt="Student icon" class="StudentIcon" />
+                    </div>
                 </article>
                 <article class="card attendance">
-                    <div class="section-header">
+                    <div class="section-header">   
                         <h2>Student Attendance</h2>
                         <select class="filter">
                             <option>Weekly</option>
@@ -91,7 +96,57 @@
                 </article>
                 <article class="card calendar">
                     <h2>March 2026</h2>
-                    <div class="calendar-widget"></div>
+                    <div class="calendar-widget">
+                        <div class="calendar-header">
+                            <button class="calendar-nav prev" aria-label="Previous month"><</button>
+                            <span class="calendar-month">March 2026</span>
+                            <button class="calendar-nav next" aria-label="Next month">></button>
+                        </div>
+                        <div class="calendar-weekdays">
+                            <span>Sun</span>
+                            <span>Mon</span>
+                            <span>Tue</span>
+                            <span>Wed</span>
+                            <span>Thu</span>
+                            <span>Fri</span>
+                            <span>Sat</span>
+                        </div>
+                        <div class="calendar-days">
+                            <!-- Empty cells for days before March 1 (Sunday) -->
+                            <span class="calendar-day empty"></span>
+                            <span class="calendar-day">1</span>
+                            <span class="calendar-day">2</span>
+                            <span class="calendar-day">3</span>
+                            <span class="calendar-day">4</span>
+                            <span class="calendar-day">5</span>
+                            <span class="calendar-day">6</span>
+                            <span class="calendar-day">7</span>
+                            <span class="calendar-day">8</span>
+                            <span class="calendar-day">9</span>
+                            <span class="calendar-day">10</span>
+                            <span class="calendar-day">11</span>
+                            <span class="calendar-day">12</span>
+                            <span class="calendar-day">13</span>
+                            <span class="calendar-day">14</span>
+                            <span class="calendar-day">15</span>
+                            <span class="calendar-day">16</span>
+                            <span class="calendar-day">17</span>
+                            <span class="calendar-day">18</span>
+                            <span class="calendar-day">19</span>
+                            <span class="calendar-day">20</span>
+                            <span class="calendar-day">21</span>
+                            <span class="calendar-day">22</span>
+                            <span class="calendar-day">23</span>
+                            <span class="calendar-day">24</span>
+                            <span class="calendar-day">25</span>
+                            <span class="calendar-day">26</span>
+                            <span class="calendar-day">27</span>
+                            <span class="calendar-day">28</span>
+                            <span class="calendar-day">29</span>
+                            <span class="calendar-day">30</span>
+                            <span class="calendar-day">31</span>
+                        </div>
+                    </div>
                 </article>
                 <article class="card events">
                     <h2>Events</h2>
